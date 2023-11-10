@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="/stylesVentas.css" />
+    <title>Registro de ventas</title>
+    
+  </head>
+  <%= layout('layouts/main') %>
+  <body>
+    <div class="container2">
+      <div class="column-left"></div>
+      <form action="/ventas" method="POST">
+        <h1>Registrar Ventas</h1>
+        <% if(typeof successMessage !== 'undefined'){ %>
+        <div class="alert alert-success"><%= successMessage %></div>
+        <% } %> <% if(typeof errorMessage !== 'undefined'){ %>
+        <div class="alert alert-danger"><%= errorMessage %></div>
+        <% } %>
+
+        <label>Cédula del Cliente:</label>
+        <input type="number" name="cc" placeholder="N° documento" /><br />
+
+        <label>Código del producto:</label>
+        <input
+          type="number"
+          id="busqueda"
+          name="codigo"
+          placeholder="Código del producto"
+        />
+        <button type="button" class="btn btn-1">Buscar</button>
+        <!-- Contenedor para mostrar resultados de búsqueda -->
+        <div id="resultadoBusqueda"></div>
+      </div>
+        <!-- <button type="button" id="agregarBtn">Agregar</button><br /><br /> -->
+        <div class="column-right"> 
+        <ul id="listaAgregados"></ul>
+
+        <button type="button" class="btn btn-1">Guardar Venta</button>
+        <button type="button" class="btn btn-3">Cancelar venta</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        mostrarCarrito();
+        const buscarBtn = document.getElementById("buscarBtn");
+        const resultadoBusqueda = document.getElementById("resultadoBusqueda");
+        const agregarBtn = document.getElementById("agregarBtn");
+        const guardarVentaBtn = document.getElementById("guardarVentaBtn");
+        const cancelarVentaBtn = document.getElementById("cancelarBtn");
+        const listaAgregados = document.getElementById("listaAgregados");
+        // let productosAgregados = [];
+
+        buscarBtn.addEventListener("click", () => {
+          const codigoProducto = document.getElementById("busqueda").value;
+
+          fetch(`/ventas/buscar?codigo=${codigoProducto}`)
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              productosAgregados = [data];
+              //data.codigo;
+              // console.log(productosAgregados);
+              if (data.continua) {
+                let listadoHtml = `<div class='itemBusqueda'>
+                  <p> Código: ${data.codigo} </p>
+                  <p> Nombre: ${data.nombre} </p>
+                  <p> Precio: ${data.precio} </p>
+                  <p> Cantidad: ${data.cantidad} </p>
+                  <p> Descripción: ${data.descrip} </p>
+                  <button type="button" onclick='agregarCarritoStorage( ${JSON.stringify(
+                    data
+                  )})'>Agregar</button>
+                </div>`;
+                // });
+                resultadoBusqueda.innerHTML = listadoHtml;
+              }
+              // resultadoBusqueda.innerHTML = listadoHtml;
+            })
+            .catch((error) => {
+              console.log(error);
+              resultadoBusqueda.innerHTML = '';
+              Swal.fire({
+              confirmButtonColor: "#366690",
+              title: "",
+              text: "Producto no encontrado",
+              icon: "error",
+            });
+            return false; // evita que el usuario avance si no tiene productos en storage
+            });
+        });
+        cancelarVentaBtn.addEventListener("click", () => {
+          eliminarCarritoStorage();
+        });
+        guardarVentaBtn.addEventListener("click", () => {
+          let carritoStore = leerCarritoStorage();
+
+          if (!carritoStore) {
+            Swal.fire({
+              confirmButtonColor: "#366690",
+              title: "",
+              text: "Debe agregar un producto",
+              icon: "warning",
+            });
+            return false; // evita que el usuario avance si no tiene productos en storage
+          }
+          postData("/ventas", { carrito: carritoStore.carrito }).then(
+            (data) => {
+              console.log("response", data);
+              if (data.continua) {
+                Swal.fire({
+                  confirmButtonColor: "#366690",
+                  title: "",
+                  text: "Venta guardada",
+                  icon: "success",
+                });
+              }
+            }
+          );
+        });
+      });
+
+      function agregarCarritoStorage(producto) {
+        // producto siempre debe ir como string
+        let dataStorage = { carrito: [] };
+
+        if (!localStorage.getItem("carritoVentas")) {
+          dataStorage.carrito = [producto];
+        } else {
+          dataStorage = JSON.parse(localStorage.getItem("carritoVentas"));
+          dataStorage.carrito = [...dataStorage.carrito, producto];
+        }
+
+        localStorage.setItem("carritoVentas", JSON.stringify(dataStorage));
+        mostrarCarrito();
+      }
+
+      function leerCarritoStorage() {
+        return JSON.parse(localStorage.getItem("carritoVentas"));
+      }
+
+      function eliminarCarritoStorage(id) {
+        if (id) {
+          let carritoStore = leerCarritoStorage();
+          let productos = carritoStore.carrito.filter(
+            (producto) => producto._id !== id
+          );
+          carritoStore.carrito = [...productos];
+          localStorage.setItem("carritoVentas", JSON.stringify(carritoStore));
+        } else {
+          localStorage.removeItem("carritoVentas");
+        }
+
+        mostrarCarrito();
+      }
+
+      function mostrarCarrito() {
+        if (leerCarritoStorage()) {
+          let carritoStore = leerCarritoStorage();
+          let listadoHtml = "";
+          console.log("carrito", carritoStore);
+          carritoStore.carrito.map((producto) => {
+            listadoHtml += `<div class='itemBusqueda'>
+                  <p> Código: ${producto.codigo} </p>
+                  <p> Nombre: ${producto.nombre} </p>
+                  <p> Precio: ${producto.precio} </p>
+                  <p> Cantidad: ${producto.cantidad} </p>
+                  <p> Descripción: ${producto.descrip} </p>
+                  <button class="btn btn-3" type="button" onclick="eliminarCarritoStorage('${producto._id}')">Eliminar</button>
+                </div>`;
+          });
+          // });
+          listaAgregados.innerHTML = listadoHtml;
+        } else {
+          listaAgregados.innerHTML = "";
+        }
+      }
+
+      async function postData(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+          method: "POST", // *GET, POST, PUT, DELETE, etc.
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+      }
+    </script>
+    
+    </div>
+  </body>
+</html>

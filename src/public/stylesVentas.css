@@ -1,0 +1,183 @@
+body {
+    background-image: url(/images/fondo.png);
+    background-position: center;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin-bottom: 900px;
+    padding-top: 100px;
+    margin: 0;
+  }
+
+  .container2 {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Estilos para la columna izquierda */
+  .column-left {
+    flex: 1; 
+    padding-left: 130px;
+    margin: 20px;
+    margin-top: 300px;
+    max-width: 50%;
+  }
+
+  /* Estilos para la columna derecha */
+  .column-right {
+    flex: 1; 
+    padding: 20px;
+    max-width: 50%; 
+    overflow-y: auto; 
+    max-height: 500px; 
+  }
+
+  h1 {
+    margin-top: 1px ;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  label {
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #buscarBtn {
+    background-color: #366690;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #resultadoBusqueda {
+    margin-top: 10px;
+  }
+
+  .itemBusqueda {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  #listaAgregados {
+    list-style: none;
+    padding: 0;
+  }
+
+  button[type="button"] {
+    margin-top: 30px;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    position: relative;
+    margin: -15px;
+}
+/*btn-3*/
+.btn-3{
+  background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+  color: #000000;
+  border-radius: 40px;
+  box-shadow: 0 0 0 0 rgba(249, 61, 61, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+  transition: 0.3s ease;
+  box-shadow: 0.3s ease;
+  overflow: hidden;
+}
+.btn-3::after{
+  content: "";
+  width: 300%;
+  height: 300%;
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  background: #050505;
+  background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+  z-index: -1;
+  transition: 0.5s ease;
+}
+.btn-3:hover{
+  color: #ffffff;
+  transform: translate(0, -6px);
+  box-shadow: 10px -10px 25px 0 rgba(146, 46, 240, 0.5), -10px 10px 25px 0 rgba(249, 1, 1, 0.7);
+}
+.btn:hover::after{
+  transform: rotate(150deg);
+}
+/*btn-1*/
+.btn-1{
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: #ffffff;
+    border-radius: 40px;
+    box-shadow: 0 0 0 0 rgba(145, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+    transition: 0.3s ease;
+    box-shadow: 0.3s ease;
+    overflow: hidden;
+}
+.btn-1::after{
+    content: "";
+    width: 300%;
+    height: 300%;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    background: #b30021;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);    
+    z-index: -1;
+    transition: 0.5s ease;
+}
+.btn-1:hover{
+    color: #ffffff;
+    transform: translate(0, -6px);
+    box-shadow: 10px -10px 25px 0 rgba(16, 226, 253, 0.5), -10px 10px 25px 0 rgba(183, 0, 255, 0.7);
+}
+.btn:hover::after{
+    transform: rotate(150deg);
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    position: relative;
+    margin: 1px;
+}

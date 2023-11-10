@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/admin.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+    <title>Administración</title>
+</head>
+
+<%= layout('layouts/main') %>
+
+
+
+<body>
+
+    <div class="container">
+        <div class="box" style="--clr:#4682b4;">
+            <div class="content">
+                <div class="icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></div>
+                <div class="text">
+                    <h3>Total Colaboradores</h3>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="box" style="--clr:#87ceeb;">
+            <div class="content">
+                <div class="icon"><ion-icon name="file-tray-full-outline"></ion-icon></div>
+                <div class="text">
+                    <h3>Total Clientes</h3>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="box" style="--clr:#4169e1;">
+            <div class="content">
+                <div class="icon"><ion-icon name="pricetag-outline"></ion-icon></div>
+                <div class="text">
+                    <h3>Total Proveedores</h3>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="box" style="--clr:#00ced1;">
+            <div class="content">
+                <div class="icon"><ion-icon name="cash-outline"></ion-icon></div>
+                <div class="text">
+                    <h3>Total Sucursales</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<main class="table">
+    <section class="table__header">
+        <h1 style="font-size: 30px;">Colaborador</h1>
+        <div class="containerB">
+            <div class="buttons">
+                <a href="/signup" class="btn btn-1">Registrar Usuario</a>
+            </div>
+        </div>
+    </section>
+    <section class="table__body">
+        <table>
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> No. Documento </th>
+                    <th> Email </th>
+                    <th> Opciones </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% ProductsClien.forEach(producto => { %>
+                <tr>
+                    <td> <%= producto.firstname %> </td>
+                    <td><%= producto.documnt %></td>
+                    <td><%= producto.email %></td>
+                    <td>
+                        <div class="buttons">
+                            <a href="/deleteCol<%= producto.email %>" class="btn btn-3">Eliminar</a>
+                        </div>
+                    </td>                        
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+
+
+<main class="table">
+    <section class="table__header">
+        <div id="seccion1"></div>
+        <h1 style="font-size: 30px;">Clientes</h1>
+        <div class="containerB">
+            <div class="buttons">
+                <a href="/clientes" class="btn btn-1">Registrar Cliente</a>
+            </div>
+        </div>
+    </section>
+    <section class="table__body">
+        <table>
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> apellido </th>
+                    <th> Telefono </th>
+                    <th> Correo </th>
+                    <th> Dirección </th>
+                    <th> Tipo de cliente </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% productosC.forEach(producto => { %>
+                <tr>
+                    <td> <%= producto.nombre %> </td>
+                    <td><%= producto.apellidos %></td>
+                    <td><%= producto.telefono %></td>
+                    <td> <%= producto.correo %> </td>
+                    <td> <%= producto.direccion %> </td>
+                    <td> <%= producto.tipoCliente %> </td>
+                        
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<main class="table">
+    <section class="table__header">
+        <h1 style="font-size: 30px;">Proveedores</h1>
+        <div class="containerB">
+            <div class="buttons">
+                <a href="/proveedores" class="btn btn-1">Registrar Proveedores</a>
+            </div>
+        </div>
+    </section>
+    <section class="table__body">
+        <table>
+            <thead>
+                <tr>
+                    <th> Proveedor </th>
+                    <th> Nit </th>
+                    <th> Dirección </th>
+                    <th> Contacto </th>
+                    <th> Telefono </th>
+                    <th> Correo </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% productosPrv.forEach(producto => { %>
+                <tr>
+                    <td> <%= producto.proveedor %> </td>
+                    <td><%= producto.nit %></td>
+                    <td><%= producto.direccion %></td>
+                    <td> <%= producto.contacto %> </td>
+                    <td> <%= producto.telefono %> </td>
+                    <td> <%= producto.correo %> </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<main class="table">
+    <section class="table__header">
+        <h1 style="font-size: 30px;">Sucursales</h1>
+        <div class="containerB">
+            <div class="buttons">
+                <a href="/sucursal" class="btn btn-1">Registrar Sucursales</a>
+            </div>
+        </div>
+    </section>
+    <section class="table__body">
+        <table>
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Dirección </th>
+                    <th> Telefono </th>
+                    <th> Correo </th>
+                    <th> Estado </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% productosSuc.forEach(producto => { %>
+                <tr>
+                    <td> <%= producto.nombre %> </td>
+                    <td><%= producto.direccion %></td>
+                    <td> <%= producto.telefono %> </td>
+                    <td> <%= producto.correo %> </td>
+                    <td> <%= producto.estado %> </td>
+                </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+

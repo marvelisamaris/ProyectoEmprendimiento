@@ -1,0 +1,189 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-width: 50%;
+    min-height: 50%;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.header{
+    position: fixed;
+    height: 70px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #366690;
+    padding: 0px 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    color: white;
+    text-shadow: 0 0 30px #00FFFC;  
+}
+
+.textonombre{
+    margin: auto;
+    float: left;
+    align-items: center;
+    color: white;
+    text-shadow: 0 0 30px #00FFFC;  
+    
+}
+img{
+    margin-bottom: 13px;
+    float: left;
+    width: 100px;
+    height: 100px;
+    
+    
+}
+
+.navigation ul{
+    list-style: none;
+}
+
+.header .navigation ul li{
+    float: left;
+    position: relative;
+
+}
+
+.header .navigation ul li a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    transition: all .2s;
+}
+
+header .navigation ul li a:hover{
+    opacity: 90%;
+    background: #cccccc;
+   
+
+}
+
+.header .navigation ul li ul{
+    position: absolute;
+    right: 0;
+    width: 300px;
+    background-color: blueviolet;
+    display: none;
+}
+
+.header .navigation ul li ul li a{
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.header .navigation ul li ul li ul{
+    position: absolute;
+    top: 0;
+    right: 300px;
+}
+.header .navigation ul li ul li{
+    display: initial;
+}
+
+footer{
+    position: fixed;
+    align-self: flex-end;
+    width: 100%;
+    height: 80px;
+    bottom: 0;
+    left: 0;
+    padding: 0.5em 3%;
+    background-color: #23435D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.logo{
+    width: 80px;
+    height: 30px;
+    margin-bottom: 1rem;
+}
+.copyrigth{
+    margin-bottom: 15px;
+}
+
+.social-icons-container, .footer-menu-container{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+    margin-top: 7px;
+}
+
+.social-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    border: 1px solid #00FFFC;
+    background-image: url(/images/facebook.png);
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    margin: 1rem;
+}
+
+.social-icon:hover{
+    background-color: beige;
+    filter: invert(1);
+}
+
+.social-icon:nth-of-type(2){
+    background-image: url(/images/instagram.png);
+}
+.social-icon:nth-of-type(3){
+    background-image: url(/images/twitter.png);
+}
+.social-icon:nth-of-type(4){
+    background-image: url(/images/mail.png);
+}
+
+.footer-menu-container{
+    list-style-type: none;
+    color: #ffff;
+    font-size: 18px;
+}
+
+.menu-item{
+    margin: 1rem 1.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.menu-item:hover{
+    opacity: 1;
+}
+
+.copyrigth{
+    color: #ffff;
+    opacity: 0.3;
+    text-align: center;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Stock</title>
+  <link rel="stylesheet" href="/stylesGen.css">
+</head>
+<%= layout('layouts/main') %>
+<body>
+  
+  <div class="container">
+    <div class="login-box">
+
+  <h1>Actualizar Stock</h1>
+  <form action="/newS/<%= producto.cod %>" method="POST">
+      
+    
+  
+      <% if(typeof successMessage !== 'undefined'){ %>
+        <div class="alert alert-success"><%= successMessage %> </div>
+        <% } %>
+        
+        <% if(typeof errorMessage !== 'undefined'){ %>
+          <div class="alert alert-danger"><%= errorMessage%></div>
+          <% } %>
+      
+          <div class="user-box">
+            <div>
+              <input type="number" name="cod" value="<%= producto.cod %>">
+              <label>Código</label>
+          </div>
+
+          <div class="user-box">
+            <input type="text" name="name_list" placeholder="Nombre" value="<%= producto.name_list %>">
+              <label>Nombre</label>
+          </div>
+
+          <div class="user-box">
+            <input type="number" name="price" placeholder="Precio unidad" value="<%= producto.price %>">
+              <label>Precio por unidad</label>
+          </div>
+        </div>
+
+          <div>
+          <div class="user-box">
+            <input type="number" name="cant" placeholder="Cantidad" value="<%= producto.cant %>">
+              <label>Cantidad de unidades</label>
+          </div>
+
+          <div class="user-box">
+            <input type="text" name="descr" placeholder="Descripción" value="<%= producto.descr %>">
+              <label>Descripción del producto</label>
+          </div>
+
+          <div class="user-box">
+            <input type="date" name="fech" placeholder="Fecha" value="<%= producto.fech %>">
+              <label>Fecha de ingreso</label>
+          </div>
+        </div>
+        
+        <a href="/invent"><i class="fa-solid fa-arrow-left"></i> Volver al Inventario </a> 
+        
+        
+          <div class="buttons">
+
+            <button style="font-size: 20px;" class="btn btn-2" type="submit">Actualizar!</button>
+        </div>
+  
+    </form>
+    </div>
+  </div>
+  <img class="imagen" src="/images/Editar.png" alt="">
+</body>
+</html>

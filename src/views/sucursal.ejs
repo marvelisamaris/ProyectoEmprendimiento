@@ -1,0 +1,30 @@
+<h1>Registro Sucursal</h1>
+<form action="/sucursal" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" required><br>
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" name="direccion" id="direccion" required><br>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" name="telefono" id="telefono" required><br>
+
+    <label for="correo">Correo:</label>
+    <input type="email" name="correo" required><br>
+
+    <label for="estado">Estado:</label>
+    <select name="estado" id="estado">
+      <option value="activo">Activo</option>
+      <option value="inactivo">Inactivo</option>
+    </select><br>
+
+    <input type="submit" value="Guardar">
+
+    <br><br><br>
+    <% if(typeof successMessage !== 'undefined'){ %>
+    <div class="alerta"><%= successMessage %> </div>
+    <% } %>
+    <% if(typeof errorMessage !== 'undefined'){ %>
+    <div class="alerta"><%= errorMessage%></div>
+    <% } %>
+  </form>

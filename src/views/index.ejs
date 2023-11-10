@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MasterKey</title>
+  <link rel="stylesheet" href="/inicio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <script src="https://kit.fontawesome.com/e20c232a36.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  
+    <header class="header">
+  
+        <img src="/images/mklogo.png" alt="">
+    
+        <div class="textonombre">
+          <h2>Bienvenido a Master Key</h2>
+      </div>
+    
+      <nav class="navigation">
+        <ul>
+            <li><a href="/index"><i class="fa-solid fa-house-chimney" style="color: #ffffff;"></i>  Inicio </a></li>
+            <li><a href="#seccion1"><i style="color: #ffffff;" class="fa-solid fa-building"></i> Nosotros </a></li>
+            <li><a href="#seccion3"><i style="color: #ffffff;" class="fa-solid fa-microchip"></i> Servicios </a></li>
+            <li><a href="/signin"><i  style="color: #ffffff;" class="fa-solid fa-right-to-bracket"></i></i>  iniciar sesión </a></li>
+        </ul>
+    
+      </nav>
+    </header>
+    
+<main>
+  <div class="column-left">    
+   <div id="seccion1" >
+    <img class="index1" src="/images/idea.png" alt="">
+    <div class="saludo">
+    <h1 class="ingresar" >En MasterKey</h1>
+    <h3>Nos enorgullece ser tu socio <br> confiable en la gestión de <br>inventario y facturación. <br>Nuestra misión es <br>simplificar y mejorar <br> tus procesos comerciales,<br> permitiéndote concentrarte en lo <br> que más importa:</h3>
+    <h2>¡Hacer crecer tu negocio!</h2>
+   </div>   
+  </div>
+
+  <img class="index3" src="/images/idea2.png" alt="">
+    <div class="preocupes">
+    <h1 class="preocupes2" >Somos un equipo</h1>
+    <h3>De emprendedores apasionados<br> por la tecnología y la innovación,<br> y nuestro objetivo es brindar <br>herramientas eficientes y asequibles<br> que ayuden a tu negocio a</h3>
+    <h2 style="color: #366690;">¡Prosperar!</h2>
+   </div>   
+    <!-- <div class="preocupes">
+    <h1 class="preocupes2" >No te preocupes</h1>
+    <h3>estamos aquí para hacer  que <br>tu experiencia sea fácil y efectiva.</h3>
+    <h2>¡estamos emocionados <br>de tenerte con nosotros!</h2>
+   </div>
+   <img class="index3" src="/images/index3.png" alt=""> -->
+
+  <div style="padding-top: 400px;" id="seccion3">
+</div>
+
+<div class="column-right">
+    <div id="seccion2" >
+      <img class="index1" src="/images/idea3.png" alt="">
+      <div class="saludo">
+      <h1 class="ingresar" >Nuestro Software</h1>
+      <h3>Se adapta a tus necesidades <br>y te brinda la capacidad <br>de gestionar tu inventario,<br> realizar ventas de manera <br> efectiva y generar facturas <br>sin problemas, todo desde una</h3>
+      <h2>¡Única plataforma intuitiva!</h2>
+     </div>   
+    </div>
+
+    <img class="index3" src="/images/idea4.png" alt="">
+    <div class="preocupes">
+    <h1 class="preocupes2" >Confía en MasterKey</h1>
+    <h3>Para ayudarte a simplificar <br>tus operaciones y hacer crecer</h3>
+    <h2 style="color: #366690;">Tu negocio!</h2>
+   </div>   
+
+
+   <img class="index1" src="/images/idea5.png" alt="">
+      <div class="saludo">
+        <h3>Estamos emocionados de <br>formar parte de tu viaje <br> hacia el éxito empresarial.</h3>
+      <h1 class="ingresar" >¡Únete a nosotros!</h1>
+      <h3>Y descubre cómo podemos <br>hacer que tu tienda sea más</h3>
+      <h2 style="color: #366690;">¡Eficiente y rentable!</h2>
+     </div>   
+</div>
+
+  </div>
+
+  
+    </main>
+      
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("a").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        const hash = this.hash;
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+          window.location.hash = hash;
+        });
+      }
+    });
+  });
+</script>
+
+
+
+    <footer>
+    
+        <div class="social-icons-container">
+            <a href="" class="social-icon"></a>
+            <a href="" class="social-icon"></a>
+            <a href="" class="social-icon"></a>
+            <a href="" class="social-icon"></a>
+        </div>
+    
+        <span class="copyrigth">Copyright 2023, MasterKey - All rights reserved.</span>
+        <span class="copyrigth"></span>
+    
+    </footer>
+</body>
+</html>
+

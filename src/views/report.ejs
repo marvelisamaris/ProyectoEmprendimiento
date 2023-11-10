@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte</title>
+    <link rel="stylesheet" href="/reporte.css">
+</head>
+<%= layout('layouts/main') %>
+<body>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resumen de Ventas</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+    </head>
+    <body>
+         
+        <div class="chart-container">
+            <h3>Aqui puedes ver los ingresos de ultimos meses</h3><br>
+            <canvas id="ingresosChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Aqui puedes ver los egresos de ultimos meses</h3><br>
+            <canvas id="egresosChart"></canvas>           
+        </div>
+        
+        <br>
+        <div class="chart-container2">
+            <canvas id="ventasChart"></canvas>
+            <h3>Total de productos vendidos cada mes</h3>
+        </div>
+       
+        <div class="chart-container3">
+            <canvas id="ventasPorCiudadChart"></canvas>
+            <h3>total de productos vendidos por ciudad</h3>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,208 @@
+body{
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-width: 50%;
+    min-height: 50%;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+    margin-right: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    background-image: url(/images/fondo.png);
+    background-position: center;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+}
+.container{
+    margin: 0;
+    padding-top: -1000px;
+    padding-bottom: 1px;
+    padding-left: 300px;
+}
+
+.imagen{
+    padding-top: 150px;
+    width: 700px;
+    height: 700px;
+}
+
+i{
+    font-size: 20px;
+    margin-left: -10px;
+    padding-right: 20px;
+}
+
+.user-box i{
+    font-size: 20px;
+    margin-left: -35px;
+    padding-right: 3px;
+    align-items: center;
+    align-content: center;
+    
+}
+
+
+.buttons{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    margin-top: 14px;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    position: relative;
+    margin: 15px;
+    
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    text-decoration: none;
+    padding:10px 70px;
+    font-size: 0.9rem;
+    position: absolute;
+    margin: 1px;
+}
+/*btn-2*/
+.btn-2{
+    margin-top: 20px;
+    margin-left: 40px;
+    color: #ffffff;
+    border-radius: 40px;
+    box-shadow: 0 0 0 0 rgba(145, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+    transition: 0.3s ease;
+    box-shadow: 0.3s ease;
+    overflow: hidden;
+}
+.btn-2::after{
+    content: "";
+    width: 200%;
+    height: 300%;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    background: transparent;
+    background-image: linear-gradient(to top, #13e0e3 0%, #537895 100%);
+    z-index: -1;
+    transition: 0.5s ease;
+}
+.btn-2:hover{
+    color: #ffffff;
+    transform: translate(0, -6px);
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+.btn:hover::after{
+    transform: rotate(150deg);
+}
+
+
+.login-box{
+position: relative;
+margin-top: 400px;
+margin-bottom: 10px;
+left: 10%;
+width: 500px;
+height: 600px;
+padding: 40px;
+transform: translate(-50%,-50%);
+background-color: rgba(226, 225, 225, 0.733);
+box-sizing: border-box;
+box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+border-radius: 10px;
+}
+
+.login-box h1{
+margin: 0 0 30px;
+padding: 0;
+color: #000000;
+text-align: center;
+
+    
+}
+.login-box .user-box{
+position: relative;
+}
+.login-box .user-box input{
+width: 100%;
+padding: 10px 0;
+font-size: 19px;
+color: #000000;
+margin-bottom: 30px;
+border: none;
+border-bottom: 2px solid #000000;
+outline: none;
+background: transparent;
+}
+.login-box .user-box label{
+position: absolute;
+top:0;
+left: 0;
+padding: 10px 0;
+font-size: 16px;
+color: #000000;
+pointer-events: none;
+transition: .5s;
+}
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label{
+top: -20px;
+left: 0;
+color: #2c7873;
+font-size: 19px;
+opacity: 80%;
+font-weight: bold;
+}
+.login-box form a{
+    margin-top: 50px;
+    margin-left: 90px;
+    padding: 10px 10px;
+    color: #070000;
+    font-size: 13px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 2px;
+    position: absolute;
+    }
+
+.login-box a:hover{
+
+color: #000000;
+font-weight: bold;
+border-radius: 9px;
+
+}
+
+.alerta{
+    text-align: center;
+    padding: 10px 10px;
+    color: #ff0000;
+    font-size: 19px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 2px;
+    position: absolute;
+}
+.alerta:hover{
+    background: #019ca4;
+color: #000000;
+font-weight: bold;
+border-radius: 9px;
+box-shadow: 0 0 5px #019ca4,
+            0 0 25px #019ca4,
+            0 0 50px #019ca4,
+            0 0 100px #019ca4;
+}

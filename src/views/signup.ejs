@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="/signup.css">
+    <script src="https://kit.fontawesome.com/e20c232a36.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%= layout('layouts/main') %>
+  
+
+  <div class="container">
+    <div class="login-box">
+      <form action="/signup" method="POST">
+                <h1>Registro de Usuario</h1> <br><br>
+                <div class="user-box">
+    
+                  <div>
+                  <label for="firstname"><i class="fa-regular fa-user"></i></label>
+                  <input placeholder="Nombre" type="text" id="firstname" name="firstname" required>
+                </div>
+    
+                <div class="user-box">
+                  <label for="documnt"><i class="fa-solid fa-user"></i></label>
+                  <input placeholder="No. documento" type="text" id="documnt" name="documnt" required>
+                </div>
+    
+                <div class="user-box">
+                  <label for="email"><i class="fa-solid fa-envelope"></i></label>
+                  <input placeholder="Email" type="email" id="email" name="email" required>
+                </div>
+              </div>
+    
+                <div>
+                <div class="user-box">
+                  <label for="password"><i class="fa-solid fa-file-signature"></i></label>
+                  <input placeholder="Contraseña" type="password" id="password" name="password" required>
+                </div>
+                  
+                <div class="buttons">
+                  <a href="/admin"><br><br><i class="fa-solid fa-rotate-left"></i></i> Administración </a> 
+                  <button style="font-size: 20px;" class="btn btn-2" type="submit">Registrar Usuario</button>
+              </div>
+            <br><br><br>
+            </div>
+                <% if(typeof successMessage !== 'undefined'){ %>
+                <div class="alerta"><%= successMessage %> </div>
+                <% } %>
+                <% if(typeof errorMessage !== 'undefined'){ %>
+                <div class="alerta"><%= errorMessage%></div>
+                <% } %>
+        </form>
+    </div>       
+  </div>
+  <img class="imagen" src="/images/registro2.png" alt="">
+</body>
+</html>

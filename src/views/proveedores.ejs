@@ -1,0 +1,33 @@
+<h1>Registro de Proveedor</h1>
+<form method="post" action="/proveedores">
+    <label for="proveedor">Proveedor:</label>
+    <input type="text" name="proveedor" required><br>
+
+    <label for="nit">NIT:</label>
+    <input type="text" name="nit" required><br>
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" name="direccion" required><br>
+
+    <label for="contacto">Contacto:</label>
+    <input type="text" name="contacto" required><br>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" name="telefono" required><br>
+
+    <label for="correo">Correo:</label>
+    <input type="email" name="correo" required><br>
+
+
+    <button style="font-size: 20px;" class="btn btn-2" type="submit">Guardar</button>
+        <a href="/admin"><br><br><i class="fa-solid fa-rotate-left"></i></i> Administraciòn </a> 
+        
+   
+   <br><br><br>
+    <% if(typeof successMessage !== 'undefined'){ %>
+    <div class="alerta"><%= successMessage %> </div>
+    <% } %>
+    <% if(typeof errorMessage !== 'undefined'){ %>
+    <div class="alerta"><%= errorMessage%></div>
+    <% } %>
+  </form>

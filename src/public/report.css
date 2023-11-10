@@ -1,0 +1,16 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Roboto', sans-serif;
+    background-image: url(/images/fondo.png);
+}
+
+.container{
+    margin-top: 30px;
+}
+
+hr{
+    color: yellow;
+}

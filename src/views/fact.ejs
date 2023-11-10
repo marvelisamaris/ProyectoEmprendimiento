@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fact.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+    <title>Facturación</title>
+</head>
+<%= layout('layouts/main') %>
+<body>
+
+
+    <main class="table">
+        <section class="table__header">
+            <h1 style="font-size: 30px;">Facturación</h1>
+            <div class="containerB">
+                <div class="buttons">
+                    <a href="" class="btn btn-1">Registrar factura</a>
+                </div>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> No. </th>
+                        <th> Serie </th>
+                        <th> Fecha </th>
+                        <th> Tipo </th>
+                        <th> Emisor </th>
+                        <th> Pdf</th>
+                        <th> Total </th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr>
+                        <td> <p>1</p> </td>
+                        <td>DDF-001</td>
+                        <td>1/11/2023</td>
+                        <td>Ingreso</td>
+                        <td>Admin</td>
+                        <td><a href="">Factura-001</a></td>
+                        <td>$589.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

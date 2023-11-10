@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Producto</title>
+    <link rel="stylesheet" href="/stylesGen.css">
+    <script src="https://kit.fontawesome.com/e20c232a36.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu:wght@500&display=swap');
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+  </head>
+<%= layout('layouts/main') %>
+<body>
+  
+  
+  <div class="container">
+  <div class="login-box">
+    <form action="/newP" method="POST">
+            <h1>Registrar Nuevo Producto</h1> <br><br>
+            <div class="user-box">
+            
+              <div>
+              <input type="number" name="cod" placeholder="">
+                <label>Código</label>
+            </div>
+            <div class="user-box">
+              <input type="text" name="name_list" placeholder="">
+                <label>Nombre</label>
+            </div>
+            <div class="user-box">
+              <input type="number" name="price" placeholder="">
+                <label>Precio por unidad</label>
+            </div>
+          </div>
+            <div>
+            <div class="user-box">
+              <input type="number" name="cant" placeholder="">
+                <label>Cantidad de unidades</label>
+            </div>
+
+            <div class="user-box">
+              <input type="text" name="descr" placeholder="">
+                <label>Descripción del producto</label>
+            </div>
+            <div class="user-box">
+              <input type="date" name="fech" placeholder="">
+                <label>Fecha de ingreso</label>
+            </div>
+          </div>
+          
+          <a href="/invent"><i class="fa-solid fa-arrow-left"></i> Volver al Inventario </a> 
+          
+          
+            <div class="buttons">
+              <button style="font-size: 20px;" class="btn btn-2" type="submit">Guardar</button>
+          </div>
+          <br><br><br>
+          
+          <script>
+            var successMessage = '<%= successMessage %>';
+            if (successMessage && successMessage !== 'undefined') {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: successMessage,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        </script>
+    
+      
+        <script>
+          var errorMessage = '<%= errorMessage %>';
+          if (errorMessage && errorMessage !== 'pageReloaded') {
+              Swal.fire({
+                  position: "center",
+                  icon: "warning",
+                  title: errorMessage,
+                  showConfirmButton: false,
+                  timer: 2500
+              });
+          }
+      </script>
+              
+    </form>
+</div>       
+
+</div>
+<img class="imagen" src="/images/nuevoP.png" alt="">
+ <script src="script.js"></script>
+</body>
+</html>

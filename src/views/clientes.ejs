@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styleCliente.css">
+  <script src="https://kit.fontawesome.com/e20c232a36.js" crossorigin="anonymous"></script>
+  <title>RegistrarCliente</title>
+</head>
+
+<body>
+  <%= layout('layouts/main') %>
+  <body>
+    
+    <img class="imagen" src="/images/registroc.png" alt="">
+    
+    <div class="container">
+    <div class="login-box">
+      <form action="/clientes" method="POST">
+    
+                <h1>Registro de Cliente</h1> <br><br>
+                <div class="user-box">
+    
+              
+                  <div>
+                  <label for="cedula"><i class="fa-regular fa-user"></i></label>
+                  <input placeholder="Cédula del Cliente" type="number" id="cedula" name="cedula" required>
+                </div>
+    
+                <div class="user-box">
+                  <label for="nombres"><i class="fa-solid fa-signature"></i></label>
+                  <input placeholder="Nombres" type="text" id="nombre" name="nombre" required>
+                </div>
+    
+                <div class="user-box">
+                  <label for="apellidos"><i class="fa-solid fa-file-signature"></i></label>
+                  <input placeholder="Apellidos" type="text" id="apellidos" name="apellidos" required>
+                </div>
+              </div>
+    
+                <div>
+                <div class="user-box">
+                  <label for="telefono"><i class="fa-solid fa-mobile"></i></label>
+                  <input placeholder="Teléfono" type="number" id="telefono" name="telefono" required>
+                </div>
+    
+                <div class="user-box">
+                  <label for="correo"><i class="fa-regular fa-envelope"></i></label>
+                  <input placeholder="Correo" type="email" id="correo" name="correo" required>
+                </div>
+    
+                <div class="user-box">
+                  <label for="direccion"><i class="fa-solid fa-location-dot"></i></label>
+                  <input placeholder="Dirección" type="text" id="direccion" name="direccion" required>
+                </div>
+              </div>
+    
+              <label for="tipoCliente">Tipo de Cliente:</label>
+                <select id="tipoCliente" name="tipoCliente" required>
+                <option value="ocasional">Ocasional</option>
+                  <option value="regular">Regular</option>
+                  <option value="frecuente">Frecuente</option>
+                </select>
+              
+                <div class="buttons">
+                  <a href="/admin"><br><br><i class="fa-solid fa-rotate-left"></i></i> Administraciòn </a> 
+                  <button style="font-size: 20px;" class="btn btn-2" type="submit">Guardar</button>
+              </div>
+            <br><br><br>
+                <% if(typeof successMessage !== 'undefined'){ %>
+                <div class="alerta"><%= successMessage %> </div>
+                <% } %>
+                <% if(typeof errorMessage !== 'undefined'){ %>
+                <div class="alerta"><%= errorMessage%></div>
+                <% } %>
+    
+                  
+    
+        </form>
+      </div>       
+    </div>
+</body>
+</html>

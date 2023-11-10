@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styleInv.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+</head>
+<%= layout('layouts/main') %>
+<body>
+<div class="container">
+    <div class="box" style="--clr:#4682b4;">
+        <div class="content">
+            <div class="icon"><ion-icon name="file-tray-stacked-outline"></ion-icon></div>
+            <div class="text">
+                <h3>Productos</h3>
+                <p><%= totalproducts.toLocaleString('es-CO') %></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box" style="--clr:#87ceeb;">
+        <div class="content">
+            <div class="icon"><ion-icon name="file-tray-full-outline"></ion-icon></div>
+            <div class="text">
+                <h3>Stock Total</h3>
+                <p><%= sumaCant %></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box" style="--clr:#4169e1;">
+        <div class="content">
+            <div class="icon"><ion-icon name="pricetag-outline"></ion-icon></div>
+            <div class="text">
+                <h3>Total Por Unidad</h3>
+                <p><%= dinero.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }) %></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box" style="--clr:#00ced1;">
+        <div class="content">
+            <div class="icon"><ion-icon name="cash-outline"></ion-icon></div>
+            <div class="text">
+                <h3>Total Dinero En Stock</h3>
+                <p><%= sumaTotDinero.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }) %></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- ********************************* -->
+
+<main class="table">
+    <section class="table__header">
+        <h1 style="font-size: 30px;">Inventario</h1>
+        <div class="containerB">
+            <div class="buttons">
+                <a href="/newP" class="btn btn-1">Registrar producto</a>
+            </div>
+        </div>
+    </section>
+    <section class="table__body">
+        <table>
+            <thead>
+                <tr>
+                    <th> Código </th>
+                    <th> Nombre </th>
+                    <th> Precio por unidad </th>
+                    <th> Cantidad de unidades </th>
+                    
+                    <th> Fecha de ingreso </th>
+                    <th> Descripcion del producto </th>
+                    <th> Opciones </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% productos.forEach(producto => { %>
+                <tr>
+                    <td> <%= producto.cod %> </td>
+                    <td><%= producto.name_list %></td>
+                    <td><%= producto.price.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }) %></td>
+                    <td> <%= producto.cant.toLocaleString('es-CO') %> </td>
+                    <td>
+                        <strong> <%= producto.fech.toDateString()%> </strong>
+                        
+                    </td>
+                    <td><p class="status delivered"><%= producto.descr %></p> </td>
+                    <td>
+                        <div class="buttons">
+                            <a href="/newS/<%= producto.cod %>" class="btn btn-2">Editar</a>
+                        </div>
+                        <div class="buttons">
+                            <a href="/deleteP<%= producto.cod %>" class="btn btn-3">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

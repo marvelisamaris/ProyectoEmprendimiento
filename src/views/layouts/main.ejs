@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MasterKey</title>
+  <link rel="stylesheet" href="/stylesMenu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <script src="https://kit.fontawesome.com/e20c232a36.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  <% if (!user) { %>
+    <a href="/index">Login</a>
+    <% } else { %>
+  
+  
+<header class="header">
+  
+    <img src="/images/mklogo1.png" alt="">
+
+    <div class="textonombre">
+      <h2>Bienvenido(a)   <%= user.firstname%></h2>
+  </div>
+
+  <nav class="navigation">
+    <ul>
+      <li><a href="/invent"><i class="fa-solid fa-warehouse" style="color: #ffffff;"></i>  Inventario</a></li>
+
+    <li><a href="/ventas"><i class="fa-solid fa-money-bill-transfer" style="color: #ffffff;"></i>  Ventas</a></li>
+
+    <li><a href="/fact"><i class="fa-solid fa-check-to-slot" style="color: #ffffff;"></i>  Facturación</a></li>
+
+    <li><a href="/report"><i class="fa-solid fa-file-export" style="color: #ffffff;"></i>  Reporte</a></li>
+
+    <li><a href="/admin"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>  Administración</a></li>
+
+    <li><a href="/index"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>  Cerrar sesión</a></li>
+
+    </ul>
+
+  </nav>
+</header>
+
+
+
+<% } %>
+
+<%- body  %>
+<footer>
+  
+  <div class="social-icons-container">
+    <a href="" class="social-icon"></a>
+    <a href="" class="social-icon"></a>
+    <a href="" class="social-icon"></a>
+    <a href="" class="social-icon"></a>
+  </div>
+ 
+  <span class="">Copyright 2023, MasterKey - All rights reserved.</span>
+  <span class="copyrigth"></span>
+
+ 
+</footer> 
+
+</body>
+</html>
